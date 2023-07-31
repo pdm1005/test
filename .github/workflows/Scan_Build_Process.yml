@@ -64,7 +64,7 @@ jobs:
     steps:
     - name: Import Component Into UCD
       run: |
-        curl --insecure --request PUT 'https://10.134.119.198:8443/cli/component/integrate' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data '{"component": "HybridAppComp2","properties": {"version": ${{ github.run_number }},"description": ""}}'
+        curl --insecure --request PUT 'https://10.134.119.198:8443/cli/component/integrate' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data '{"component": "Pavan_Comp","properties": {"version": ${{ github.run_number }},"description": ""}}'
     - name: Create Snapshot
       run: |
-        curl --insecure --request PUT 'https://10.134.119.198:8443/cli/snapshot/createSnapshot' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data '{"name": ${{ github.run_number }},"application": "Hybrid App","description": "Some snapshot","versions": [{"HybridAppComp2": "latest"}]}'
+        curl --insecure --request PUT 'https://10.134.119.198:8443/cli/snapshot/createSnapshot' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data '{"name": ${{ github.run_number }},"application": "Pavan_App","description": "Some snapshot","versions": [{"Pavan_Comp": "latest"}]}'
