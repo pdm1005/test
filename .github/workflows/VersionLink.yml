@@ -63,8 +63,7 @@ jobs:
         curl --insecure --request PUT 'https://10.134.119.250:8443/cli/component/integrate' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46YWRtaW4=' --data '{"component": "PdmComponent","properties": {"version": Comp1-1.2.3-${{ github.run_number }}-4.5.6,"description": ""}}'
     - name: Install jq
       run: |
-        apt-get install wget
-        wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+        curl https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 --output jq
         chmod +x jq
         sudo mv jq /usr/local/bin/
     - name: Run curl with loop and timeout
